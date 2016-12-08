@@ -1,0 +1,29 @@
+<aura:component controller="AccountsController" implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="accounts" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- VF Page Code...mostly the same -->
+	<table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Number Of Employees</th>
+            <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+       <!-- <apex:repeat value="{!accounts}" var="account">   Replaced with aura:iteration-->
+            <aura:iteration items="{!v.accounts}" var="account">
+            
+                <tr>
+                    <td>{!account.Name}</td>
+                    <td>{!account.Type}</td>
+                    <td>{!account.NumberOfEmployees}</td>
+                    <td>{!account.Phone}</td>
+                </tr>
+           </aura:iteration>
+        </tbody>
+    </table>
+
+</aura:component>
